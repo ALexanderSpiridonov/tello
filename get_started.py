@@ -1,11 +1,12 @@
 from djitellopy import Tello
 import cv2
+import time
 
 
 ###########################################################################
 width = 320         # width of the image
 height = 240        # height of the image
-startCounter = 1    # 0 for flight 1 for testing
+startCounter = 0    # 0 for flight 1 for testing
 ###########################################################################
 
 
@@ -33,8 +34,11 @@ while True:
     # to go up in the beginning
     if startCounter == 0:
         me.takeoff()
+        time.sleep(5)
         # me.move_left(20)
-        me.rotate_clockwise(360)
+        me.rotate_clockwise(90)
+        time.sleep(5)
+        me.land()
         startCounter = 1
 
     # send velocity values to TELLO
@@ -45,7 +49,7 @@ while True:
     cv2.imshow("my_result", img)
 
     # wait for the 'Q' button to stop
-    if cv2.waitKey(1) & 0xFF == ord('q'):
+    if cv2.waitKey(0) & 0xFF == ord('q'):
         me.land()
         break
 
