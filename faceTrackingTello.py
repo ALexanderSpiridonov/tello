@@ -1,5 +1,6 @@
 from utils import *
 import cv2
+import time
 
 w, h = 360, 240
 pid = [0.5, 0.5, 0]
@@ -13,7 +14,8 @@ while True:
     ## Flight
     if startCounter == 0:
         myDrone.takeoff()
-        myDrone.move_up(120)
+        time.sleep(5)
+        myDrone.move_up(190)
         startCounter = 1
 
     ## Step 1
