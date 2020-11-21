@@ -15,7 +15,8 @@ while True:
     if startCounter == 0:
         myDrone.takeoff()
         time.sleep(5)
-        myDrone.move_up(190)
+        myDrone.move_up(120)
+        time.sleep(5)
         startCounter = 1
 
     ## Step 1
